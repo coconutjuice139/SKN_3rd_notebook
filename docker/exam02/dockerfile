@@ -1,0 +1,10 @@
+# base image
+FROM node:12
+
+# 코드 복사
+COPY hello.js /
+
+# 어플리케이션 실행
+CMD [ "node", "/hello.js" ]
+
+# 워크 디렉토리 등등은 옵션

@@ -1,0 +1,46 @@
+version: "3"
+
+# 2개의 컨테이너 정의
+# 2개의 컨테이너가 들어가는 네트워크 정의하기
+
+# 참고문서: https://docs.docker.com/compose/gettingstarted/
+# 서비스 뒤에는 컨테이너만 쓴다.
+services: 
+  mysql-db:
+    container_name: compose-mysql-db
+    image: mysql
+    restart: always
+    command:
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci
+    volumes:
+      - ./database:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: "root1234"
+      MYSQL_DATABASE: "examplesdb"
+      MYSQL_USER: "urstory"
+      MYSQL_PASSWORD: "u1234"
+    ports:
+      - "3306:3306"
+      # 컨테이너가 띄워지는 PC : 컨테이너
+    networks:
+    - compose_net
+    # 위에서 설치되는 db는 compose_net 네트워크에서 실행된다.
+  python-mysql:
+    container_name: compose-python-mysql
+    build: .
+    #build는 dockerfile의 디렉토리를 작성해야 한다.
+    depends_on:
+    - mysql-db
+    # 연결할 포트 지정 ( 이게 있어야 streamlit에 연결할 수 있음 )
+    ports:
+    - 8501:8501
+    # 해당 커넥션 오류를 방지하기 위해 mysql을 먼저 실행시키고 작동하도록
+    networks:
+    - compose_net
+
+# 참고문서: https://docs.docker.com/compose/networking/
+networks:
+  compose_net:
+    name: compose_mysql_net
+    driver: bridge

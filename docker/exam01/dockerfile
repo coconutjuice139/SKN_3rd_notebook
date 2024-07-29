@@ -1,0 +1,36 @@
+# 내가 만드는 docker파일의 베이스 이미지를 정의하는 것
+# 베이스 이미지는 docker hub에 있으며, 해당 사이트에 올라간 이미지는 모두 베이스 이미지로 사용 가능
+# 허브에 올라가지 않은 것도 가능하지만 보통 허브에 올린 것을 기준으로 만든다.
+# ubuntu ~= OS ~= 컴퓨터 (서로 다른 개념이지만 일단 이렇게 생각하고 지나가자)
+FROM ubuntu:latest
+
+# ubuntu update!! -> 어플리케이션 설치 전 무조건 해야 함
+RUN apt-get update
+# 아파치(apache)라는 웹 서버를 만들것이다.
+# 아파치 서버(apache HTTP server)는 HTML, CSS, js 같은 것을 브라우저에게 전달해주는 서버
+# 설치 과정에서 나오는 모든 질문은 yes로 하겠다 -> -y
+RUN apt-get install -y apache2 
+
+# 웹서버는 html파일을 브라우저에 연결하는 역할이고
+# 아파치는 설치되어 있지만 우리가 설치한 ubuntu에는 없을 것이다.
+# 따라서 해당 내용을 복사해서 보내야 한다.
+# 코드복사 -> ubuntu에서 apache2 web server로
+COPY hello.html /var/www/html
+
+
+# 홈 디렉토리를 설정해야 한다.
+# 어플리케이션(아파치 서버)이 시작되는 폴더
+# 현행 파일에서는 (RUN apt-get install -y apache2)로 아파치만 설치되어 있다.
+WORKDIR /var/www/html
+
+# 아파치는 어플리케이션인데 포트번호가 80이다.
+# ubuntu가 외부와 연결되기 위해 아파치를 쓰는데 아파치가 가진 외부 포트 넘버가 80이다.
+# -> 외부 PC 포트와 연결된다.
+EXPOSE 80
+
+# 해당 어플리케이션이 실행되어야 사용할 수 있다.
+# 따라서 위에 다 세팅은 되었지만 아파치(어플리케이션)가 실행되지 않으면
+# 위의 명령을 수행하더라도 파일로 실행해야 위의 코드의 실행을 확인할 수 있다.
+# 여기서 D는 demon으로 백그라운드 실행을 말한다.
+# apachectl에서 ctl은 컨트롤러이다.
+CMD [ "apachectl", "-D", "FOREGROUND" ]
