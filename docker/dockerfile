@@ -1,32 +1,24 @@
-FROM ubuntu:18.04 
+FROM python:3.12
 
-RUN apt-get -y update && \
-    apt-get -y upgrade && \
-    apt-get -y dist-upgrade && \
-    apt-get install -y python3-pip 
-# 리눅스에서 파이썬 다운받는 방법 
+# 작업 디렉토리 설정
+WORKDIR /app
 
-RUN apt update && apt -y install locales && locale-gen en_US.UTF-8
-ENV LANG en_US.UTF-8
-ENV LANGUAGE en_US:en
-ENV LC_ALL en_US.UTF-8
+# 폴더 강제 생성
+RUN mkdir -p /app/.streamlit
 
-RUN pip3 install --upgrade pip && \
-    pip3 install pandas PyMySQL streamlit
-# requirement.txt가 있으니 뺀다.
+# 소스 복사 
+COPY ex-01.py requirements.txt /app/
+COPY .streamlit/secrets.toml /app/.streamlit/secrets.toml
 
-# COPY requirements.txt /root/
-COPY main.py /root/ 
-WORKDIR /root
-# RUN pip3 install -r requirements.txt
-EXPOSE 8080
-CMD ["python3", "main.py"]
+# 라이브러리 설치 
+RUN pip3 install --upgrade pip
+RUN pip3 install -r requirements.txt
 
+# 포트 오픈 (서버 오픈할 때 무조건 필요)
+EXPOSE 8501
 
-# FROM python
+# 컨테이너 헬스 체크
+HEALTHCHECK CMD curl --fail http://localhost:8501/_stcore/health
 
-# WORKDIR /root/
-
-# EXPOSE 3306:3306
-
-# CMD [ "streamlit", "run", "streamlit.py" ]
+# 애플리케이션 실행 
+ENTRYPOINT ["streamlit", "run", "ex-01.py", "--server.port=8501", "--server.address=0.0.0.0"]
