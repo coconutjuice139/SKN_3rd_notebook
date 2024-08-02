@@ -1,0 +1,57 @@
+#홈페이지에서 API서비스 신청시 받은 Appkey, Appsecret 값 설정
+#실전투자 (모의투자인 경우 모의투자용 앱키, 앱시크리트 사용)
+# my_app: "앱키"
+# my_sec: "앱시크리트"
+
+# my_app: "PSlk7opiVk7xrZASl1UIxKz9I03fvKVHIoj0"
+# my_sec: "ydBlQkV4uT8A1+BdNtyru+LIZ/MrWdPY3Az7pAUWuwu5yfvqSk2YxeYz2gsf/m9X4uOCyBzT6yAigGXsR4W/0BBMyKXwShvIWriZMdiMepxJsC7TxnKkqRT77TT7hrnkCU+c1YBr7vynuNAfe6QMJ/oXazA3IMFhIk96tCkKHf+xW3SIs4U="
+
+# #계좌번호 앞 8자리
+# my_acct: "50113711"
+# #계좌번호 뒤 2자리
+# my_prod: "01"
+
+# #실전투자
+# # prod: "https://openapi.koreainvestment.com:9443"
+# #모의투자
+# vps: "https://openapivts.koreainvestment.com:29443"
+
+# #디스코드 웹훅 URL
+# DISCORD_WEBHOOK_URL: ""
+
+# my_token: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0b2tlbiIsImF1ZCI6IjEyNDM4YzViLWI2MmQtNGYyYS05YjQ5LWU3M2JhMGIzY2U0YiIsInByZHRfY2QiOiIiLCJpc3MiOiJ1bm9ndyIsImV4cCI6MTcyMjU2NDE3OCwiaWF0IjoxNzIyNDc3Nzc4LCJqdGkiOiJQU2xrN29waVZrN3hyWkFTbDFVSXhLejlJMDNmdktWSElvajAifQ.-Wmu3bzql2NMrKRxjjRUOlP5WL7kwT8OuYaOQobsL2vZBKxIdWK6gOkHi6-IOcIQMnJZAWNSXMzdHJu_hV5yWQ"
+
+
+# my_url: "https://openapivts.koreainvestment.com:29443"
+
+# my_agent : "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36"
+
+#########################################################################################################
+#홈페이지에서 API서비스 신청시 받은 Appkey, Appsecret 값 설정
+#실전투자
+my_app: ""
+my_sec: ""
+
+#모의투자
+paper_app: "PSlk7opiVk7xrZASl1UIxKz9I03fvKVHIoj0"
+paper_sec: "ydBlQkV4uT8A1+BdNtyru+LIZ/MrWdPY3Az7pAUWuwu5yfvqSk2YxeYz2gsf/m9X4uOCyBzT6yAigGXsR4W/0BBMyKXwShvIWriZMdiMepxJsC7TxnKkqRT77TT7hrnkCU+c1YBr7vynuNAfe6QMJ/oXazA3IMFhIk96tCkKHf+xW3SIs4U="
+
+#계좌번호 앞 8자리
+my_acct_stock: ""
+my_acct_future: ""
+my_paper_stock: "50113711"
+my_paper_future: ""
+
+#계좌번호 뒤 2자리
+my_prod: "01"
+
+#domain info
+prod: "https://openapi.koreainvestment.com:9443" #서비스
+ops: "ws://ops.koreainvestment.com:21000" #웹소켓
+vps: "https://openapivts.koreainvestment.com:29443" #모의투자서비스
+vops: "ws://ops.koreainvestment.com:31000" #모의투자웹소켓
+
+my_token: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0b2tlbiIsImF1ZCI6IjEyNDM4YzViLWI2MmQtNGYyYS05YjQ5LWU3M2JhMGIzY2U0YiIsInByZHRfY2QiOiIiLCJpc3MiOiJ1bm9ndyIsImV4cCI6MTcyMjU2NDE3OCwiaWF0IjoxNzIyNDc3Nzc4LCJqdGkiOiJQU2xrN29waVZrN3hyWkFTbDFVSXhLejlJMDNmdktWSElvajAifQ.-Wmu3bzql2NMrKRxjjRUOlP5WL7kwT8OuYaOQobsL2vZBKxIdWK6gOkHi6-IOcIQMnJZAWNSXMzdHJu_hV5yWQ"
+
+# User-Agent; Chrome > F12 개발자 모드 > Console > navigator.userAgent > 자신의 userAgent 확인가능
+my_agent : "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36"
