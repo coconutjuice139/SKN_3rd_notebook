@@ -1,0 +1,93 @@
+.box {
+    margin: 0 0; /*margin (top-bottom) (RL-side)*/
+    max-width: 400px;
+    text-align: center;
+    padding: 20px;
+    font-family: "Roboto", sans-serif;
+    font-size: 72px;
+    color: #2c3e50;
+}
+
+button:hover {
+    opacity: 0.7;
+}
+
+#check-btn1 { display: none; }
+#check-btn1:checked ~ .container_timer { display: block; }
+.container_timer { display: none; }
+
+#check-btn2 { display: none; }
+#check-btn2:checked ~ .container_stopwatch { display: block; }
+.container_stopwatch { display: none; }
+
+#timerB {
+    font-size: 18px;
+    padding: 10px 20px;
+    margin: 10px;
+    color: white;
+
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: opacity 0.3s ease-in-out;
+    background-color: #27ae60; 
+}
+
+#stopwatchB {
+    font-size: 18px;
+    padding: 10px 20px;
+    margin: 10px;
+    color: white;
+
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: opacity 0.3s ease-in-out;
+    background-color: #b9a814;
+}
+
+
+.title {
+    font-size: 36px;
+    margin-bottom: 10px;
+    color: #0b7bec;
+}
+
+button {
+    font-size: 18px;
+    padding: 10px 20px;
+    margin: 10px;
+    color: white;
+
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: opacity 0.3s ease-in-out;
+}
+
+#startT {
+    background-color: #27ae60;
+}
+
+#stopT {
+    background-color: #c0392b;
+}
+
+#resetT {
+    background-color: #7f8c8d;
+}
+
+#startS {
+    background-color: #27ae60;
+}
+
+#stopS {
+    background-color: #c0392b;
+}
+
+#resetS {
+    background-color: #7f8c8d;
+}

@@ -14,7 +14,7 @@ import json
 import pandas as pd
 
 from collections import namedtuple
-from datetime import datetime
+from datetime import datetime, timedelta
 from pandas import DataFrame
 
 #====|  [국내주식] 주문/계좌  |===========================================================================================================================
