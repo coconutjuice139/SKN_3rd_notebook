@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>{{like_food}}</h1>
+    <!-- 아래 중괄호 사이에 파이썬의 반복문이 진행된다. -->
+    <!-- 기본 파이썬 코드가 들어가는 곳은 중괄호 하나-->
+    <!-- 변수가 들어가는 곳은 중괄호 두 개가 쓰인다.-->
+    {% for food in foods %}
+        <p>{{food}}</p>
+    {% endfor %}
+
+    <h2>{{like_country}}</h2>
+    {% for country in countries %}
+        {{country.name}}
+    {% endfor %}
+</body>
+</html>

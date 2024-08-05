@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--장고의 static이라는 폴더를 로드-->
+    {% load static %}
+    <!--rel = css임을 지정, href = static을 로드한 내용에서 해당 path로 연결하라-->
+    <link rel="stylesheet" href="{% static './css/index.css' %}">
+</head>
+<body>
+    <!-- <h1>User page 입니다.</h1>-->
+    <!--static의 폴더를 로드하라-->
+    <!--<h3>Js와 css가 연결된 화면입니다.</h3> -->
+    <h1>{{massage1}}</h1>
+    <h2>{{massage2}}</h2>
+
+    {% load static %}
+    <!--type = javascript임을 지정, src = static을 로드한 지점에서 해당 path로 연결해라-->
+    <script type="text/javascript" src="{% static './js/index.js' %}"></script>
+</body>
+</html>
