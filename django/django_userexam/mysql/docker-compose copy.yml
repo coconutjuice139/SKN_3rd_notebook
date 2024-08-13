@@ -1,0 +1,18 @@
+version: "3"
+
+services:
+  db:
+    image: mysql #mysql이 설치되는 구나
+    restart: always #항상 켜져있다
+    command: #명령어
+      - --character-set-server=utf8mb4 #mysql 서버에 인코딩 방법을 셋팅한다.
+      - --collation-server=utf8mb4_unicode_ci
+    volumes: #mysql이 어디에 설치되는지
+      - ./database:/var/lib/mysql 
+    environment: # mysql의 환경 변수 설정 (관리자 계정은 다운받으면 미리 생성된다.)
+      MYSQL_ROOT_PASSWORD: "root1234" #관리자 계정 비번 설정
+      MYSQL_DATABASE: "examplesdb" # 데이터 베이스 미리 설정(옵션)
+      MYSQL_USER: "urstory" # 유저 계정 생성 
+      MYSQL_PASSWORD: "u1234" # 유저 계정 비번
+    ports:
+      - "3306:3306" #mysql의 기본 가상 포트 (PC안에 가상 PC를 만들어 해당 PC에 mysql이 설치됨) "내 PC 포트: 가상 PC 포트"

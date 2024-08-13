@@ -1,0 +1,1 @@
+alert('hihi it is user page!!')
