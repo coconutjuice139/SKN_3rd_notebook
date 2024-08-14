@@ -85,10 +85,10 @@ WSGI_APPLICATION = 'config.wsgi.application'
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.mysql",
-        "NAME": "djangomysqldb", # 데이터베이스 이름 
+        "NAME": "gitDB", # 데이터베이스 이름 
         "USER": "admin", 
         "PASSWORD": "qweruiop12347890", 
-        "HOST": "mysqldatabase.cxoocs8met2j.ap-northeast-2.rds.amazonaws.com",
+        "HOST": "database.cxoocs8met2j.ap-northeast-2.rds.amazonaws.com",
         "PORT": "3306"
     }
 }
