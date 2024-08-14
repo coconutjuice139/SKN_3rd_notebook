@@ -21,12 +21,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-^uu--kx(s&_s8tle^%#iw+9(x0m00_v*&rk!_ll(%trg&#ci(n'
+SECRET_KEY = os.getenv("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = []
+DEBUG = False
+# 장고가 제약조건을 거는 것이 아니여서 여기선 다 열어줘야 함
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -85,10 +85,10 @@ WSGI_APPLICATION = 'config.wsgi.application'
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.mysql",
-        "NAME": "djangodb", # 데이터베이스 이름 
+        "NAME": "djangomysqldb", # 데이터베이스 이름 
         "USER": "admin", 
         "PASSWORD": "qweruiop12347890", 
-        "HOST": "mysql-database.cxoocs8met2j.ap-northeast-2.rds.amazonaws.com",
+        "HOST": "mysqldatabase.cxoocs8met2j.ap-northeast-2.rds.amazonaws.com",
         "PORT": "3306"
     }
 }
@@ -129,6 +129,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
+STATIC_ROOT = '/static/'
 STATIC_URL = 'static/'
 STATIC_PATH = os.path.join(
     BASE_DIR, "static"
