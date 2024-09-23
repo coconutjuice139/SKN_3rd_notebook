@@ -1,0 +1,1 @@
+[{"model":"modelV5","score_tr":0.8647540984,"score_te":0.8858695652,"auc_te":0.9278822055,"len_features":10,"feaute_importances":["gender_female","pclass","fare","age","sibsp","parch","embarked_S","gender_male","embarked_C","embarked_Q"],"create_dt":"0217"}]
