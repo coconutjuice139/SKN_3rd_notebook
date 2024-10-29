@@ -38,7 +38,7 @@ os.environ['OPENAI_API_KEY'] = api_key
 
 from langchain_common.constant import CHATBOT_ROLE, CHATBOT_MESSAGE
 from langchain_common.prompt import create_message
-from common.chat import response_from_langchain
+from langchain_common.chat import response_from_langchain
 
 # web ui/ux
 import streamlit as st

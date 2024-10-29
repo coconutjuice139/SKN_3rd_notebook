@@ -2,11 +2,7 @@ from langchain_core.prompts import ChatPromptTemplate
 from langchain_openai import ChatOpenAI
 
 def creat_chat_model(model_id:str="gpt-4o-mini"):
-    # 모델 생성
-    chat = ChatOpenAI(
-        model="gpt-4o-mini"
-    )
-    return chat
+    return ChatOpenAI(model=model_id)
 
 def create_prompt():
     # 프롬프트 생성

@@ -1,4 +1,3 @@
-
 from .constant import CHATBOT_MESSAGE, CHATBOT_ROLE
 
 def create_message(role:CHATBOT_ROLE, prompt:str):
