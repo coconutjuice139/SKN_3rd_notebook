@@ -1,6 +1,8 @@
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_openai import ChatOpenAI
+import streamlit as st
 
+@st.cache_resource
 def creat_chat_model(model_id:str="gpt-4o-mini"):
     return ChatOpenAI(model=model_id)
 
