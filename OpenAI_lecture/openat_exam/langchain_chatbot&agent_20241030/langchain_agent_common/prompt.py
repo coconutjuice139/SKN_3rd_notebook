@@ -1,5 +1,5 @@
-
 from .constant import CHATBOT_MESSAGE, CHATBOT_ROLE
+from langchain_core.prompts import PromptTemplate
 
 def create_message(role:CHATBOT_ROLE, prompt:str):
 
@@ -8,3 +8,5 @@ def create_message(role:CHATBOT_ROLE, prompt:str):
         CHATBOT_MESSAGE.content.name: prompt
     }
 
+def create_runnable_lambda():
+    return PromptTemplate.from_template("{today} 날짜에 발생한 {country}의 역사적 사실 1개 알려줘")
