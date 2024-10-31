@@ -50,16 +50,14 @@ st.title("Chat Bot")
 
 page = st.sidebar.selectbox(
     "Select a page",
-    ["streamlit_main_page", "langchain_agent", "langchain_chatbot", "langchain_langgraph"],  # "Select a page" 옵션 제거
-    index=2  # langchain_agent를 기본 선택값으로 설정
+    ["streamlit_main_page", "langchain_agent", "langchain_chatbot"],  # "Select a page" 옵션 제거
+    index=2  # langchain_chatbot를 기본 선택값으로 설정
 )
-# 페이지 이동
-if page == "home":
+# 현재 페이지가 아닌 다른 페이지가 선택되었을 때만 페이지 전환
+if page == "streamlit_main_page":
     switch_page("streamlit_main_page")
 elif page == "langchain_agent":
     switch_page("langchain_agent")
-elif page == "langchain_langgraph":
-    switch_page("langchain_langgraph")
 
 # ... existing code ...
 

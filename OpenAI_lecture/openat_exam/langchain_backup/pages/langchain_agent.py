@@ -46,11 +46,11 @@ if not api_key:
 os.environ['OPENAI_API_KEY'] = api_key
 
 
-st.title("LangChain Agent chatbot")
+st.title("Chat Bot")
 
 page = st.sidebar.selectbox(
     "Select a page",
-    ["streamlit_main_page", "langchain_agent", "langchain_chatbot", "langchain_langgraph"],  # "Select a page" 옵션 제거
+    ["streamlit_main_page", "langchain_agent", "langchain_chatbot"],  # "Select a page" 옵션 제거
     index=1  # langchain_agent를 기본 선택값으로 설정
 )
 # 페이지 이동
@@ -58,8 +58,6 @@ if page == "home":
     switch_page("streamlit_main_page")
 elif page == "langchain_chatbot":
     switch_page("langchain_chatbot")
-elif page == "langchain_langgraph":
-    switch_page("langchain_langgraph")
 
 
 # 메세지를 저장 

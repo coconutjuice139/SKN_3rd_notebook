@@ -1,8 +1,9 @@
 import os
 from dotenv import load_dotenv
-from langchain_agent_common.constant import CHATBOT_ROLE, CHATBOT_MESSAGE
-from langchain_agent_common.prompt import create_message
-from langchain_agent_common.chat import response_from_tiviny
+from langchain_langgraph.constant import CHATBOT_ROLE, CHATBOT_MESSAGE
+from langchain_langgraph.prompt import create_message
+from langchain_langgraph.chat import response_from_langgraph
+
 
 import streamlit as st
 from streamlit_extras.switch_page_button import switch_page
@@ -46,20 +47,20 @@ if not api_key:
 os.environ['OPENAI_API_KEY'] = api_key
 
 
-st.title("LangChain Agent chatbot")
+st.title("LangGraph Agent Chatbot")
 
 page = st.sidebar.selectbox(
     "Select a page",
     ["streamlit_main_page", "langchain_agent", "langchain_chatbot", "langchain_langgraph"],  # "Select a page" 옵션 제거
-    index=1  # langchain_agent를 기본 선택값으로 설정
+    index=3  # langchain_agent를 기본 선택값으로 설정
 )
 # 페이지 이동
 if page == "home":
     switch_page("streamlit_main_page")
+elif page == "langchain_agent":
+    switch_page("langchain_agent")
 elif page == "langchain_chatbot":
     switch_page("langchain_chatbot")
-elif page == "langchain_langgraph":
-    switch_page("langchain_langgraph")
 
 
 # 메세지를 저장 
@@ -89,7 +90,7 @@ if prompt:
         with st.chat_message(CHATBOT_ROLE.assistant.name):
             # assistant_response = response_from_llm(prompt)
             # st.markdown(assistant_response)
-            assistant_response = st.write(response_from_tiviny(prompt=prompt, message_history=st.session_state.agent_messages))
+            assistant_response = st.write(response_from_langgraph(prompt=prompt, message_history=st.session_state.agent_messages))
 
         # st.session_state.messages.append(message)
 
