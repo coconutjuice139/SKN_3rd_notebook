@@ -10,22 +10,22 @@ from langchain_memory_common.langgraph.state import AgentState
 
 # 트리머 설정 함수
 def set_trimmer():
-    return trim_messages(strategy="last", max_tokens=500, token_counter=len)
+    return trim_messages(strategy="last", max_tokens=50, token_counter=len)
 
 # 모델을 호출하는 함수
 def call_model(state: AgentState):
-    print(state)
+    # print(state)
     # 필요 시 메시지를 트리밍
     trimmed_messages = set_trimmer().invoke(state["chat_history"])
-    print("--------------")
-    print(trimmed_messages)
+    # print("--------------")
+    # print(trimmed_messages)
     # 시스템 프롬프트와 메시지 설정
     messages = [SystemMessage(content="You are a helpful assistant. Answer all questions to the best of your ability.")] + trimmed_messages
     # 모델 호출
     agent_outcome = creat_chat_model().invoke(messages)
     # 상태 업데이트
     state["agent_outcome"] = agent_outcome
-    state["chat_history"].append({'role': 'assistant', 'content': agent_outcome.return_values['output']})
+    state["chat_history"].append({'role': 'assistant', 'content': agent_outcome.content})
     return state
 
 # 에이전트를 실행하는 함수

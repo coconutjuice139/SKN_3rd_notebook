@@ -15,12 +15,12 @@ def get_client():
 def response_from_langgraph(prompt, message_history=[], model_id:str="gpt-4o-mini"):
     # save_langgraph_structure_img()
     inputs = {"input": prompt,
-            "chat_history": [],
+            "chat_history": message_history,
             "intermediate_steps":[]}
     config={"configurable": {"thread_id": "1"}}
     output = set_workflow_to_app().invoke(inputs, config)
     response_from_graph = output['agent_outcome'].content
-    message_history.append({"role": "assistant", "content": response_from_graph})
+    # message_history.append({"role": "assistant", "content": response_from_graph})
     return response_from_graph
 
 
