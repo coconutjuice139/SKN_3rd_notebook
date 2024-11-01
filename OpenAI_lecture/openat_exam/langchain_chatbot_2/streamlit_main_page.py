@@ -12,7 +12,7 @@ st.markdown("""LangChain Chatbot은 기본 LLM모델 기반에 여행관련 자�
 
 
 # 버튼 컨테이너를 생성하여 가로로 배치
-col1, col2, col3 = st.columns(3)
+col1, col2, col3, col4 = st.columns(4)
 
 with col1:
     if st.button("LangChain Agent"):
@@ -26,9 +26,13 @@ with col3:
     if st.button("LangChain LangGraph"):
         switch_page("langchain_langgraph")
 
+with col4:
+    if st.button("Langchain memory exam"):
+        switch_page("langchain_memory_exam")
+
 page = st.sidebar.selectbox(
     "Select a page",
-    ["streamlit_main_page", "langchain_agent", "langchain_chatbot", "langchain_langgraph"],  # "Select a page" 옵션 제거
+    ["streamlit_main_page", "langchain_agent", "langchain_chatbot", "langchain_langgraph", "langchain_memory_exam"],  # "Select a page" 옵션 제거
     index=0  # langchain_agent를 기본 선택값으로 설정
 )
 # 페이지 이동
@@ -40,4 +44,6 @@ elif page == "langchain_chatbot":
     switch_page("langchain_chatbot")
 elif page == "langchain_langgraph":
     switch_page("langchain_langgraph")
+elif page == "langchain_memory_exam":
+    switch_page("langchain_memory_exam")
 

@@ -36,22 +36,22 @@ if not api_key:
 # 가져온 값을 environ에 저장
 os.environ['OPENAI_API_KEY'] = api_key
 
-from langchain_common.constant import CHATBOT_ROLE, CHATBOT_MESSAGE
-from langchain_common.prompt import create_message
-from langchain_common.chat import response_from_langchain, response_from_runnable_lambda, response_from_runnable_parallel
+from langchain_memory_common.constant import CHATBOT_ROLE, CHATBOT_MESSAGE
+from langchain_memory_common.prompt import create_message
+from langchain_memory_common.chat import response_from_langchain, response_from_runnable_lambda, response_from_runnable_parallel, response_from_langgraph
 import streamlit as st
 from streamlit_extras.switch_page_button import switch_page
 
 # web ui/ux
 import streamlit as st
 
-st.title("Chat Bot")
+st.title("Chat Bot Memory Exam")
 
 
 page = st.sidebar.selectbox(
     "Select a page",
     ["streamlit_main_page", "langchain_agent", "langchain_chatbot", "langchain_langgraph", "langchain_memory_exam"],  # "Select a page" 옵션 제거
-    index=2  # langchain_agent를 기본 선택값으로 설정
+    index=4  # langchain_agent를 기본 선택값으로 설정
 )
 # 페이지 이동
 if page == "home":
@@ -60,9 +60,8 @@ elif page == "langchain_agent":
     switch_page("langchain_agent")
 elif page == "langchain_langgraph":
     switch_page("langchain_langgraph")
-elif page == "langchain_memory_exam":
+elif page == "langchain_memory":
     switch_page("langchain_memory_exam")
-
 
 # ... existing code ...
 
@@ -84,8 +83,7 @@ prompt = st.chat_input("입력해주세요")
 if prompt:
     message = create_message(role=CHATBOT_ROLE.user, prompt=prompt)
     
-    if "[역사]" in prompt:
-        print("check history")
+    if message:
         # 화면에 표현
         with st.chat_message(CHATBOT_ROLE.user.name):
             st.write(prompt)
@@ -94,32 +92,7 @@ if prompt:
         with st.chat_message(CHATBOT_ROLE.assistant.name):
             # assistant_response = response_from_llm(prompt)
             # st.markdown(assistant_response)
-            assistant_response = st.write(response_from_runnable_lambda(prompt=prompt, message_history=st.session_state.messages))
-    
-    elif "[정보]" in prompt:
-        # 화면에 표현
-        with st.chat_message(CHATBOT_ROLE.user.name):
-            st.write(prompt)
-        st.session_state.messages.append({"role" : "user", "content": prompt})
-        # 챗봇 답변 
-        with st.chat_message(CHATBOT_ROLE.assistant.name):
-            # assistant_response = response_from_llm(prompt)
-            # st.markdown(assistant_response)
-            assistant_response = st.write(response_from_runnable_parallel(prompt=prompt, message_history=st.session_state.messages))
-
-            st.session_state.messages.append(assistant_response)
-    
-    # 입력값이 존재한다면, 
-    elif message:
-        # 화면에 표현
-        with st.chat_message(CHATBOT_ROLE.user.name):
-            st.write(prompt)
-        st.session_state.messages.append({"role" : "user", "content": prompt})
-        # 챗봇 답변 
-        with st.chat_message(CHATBOT_ROLE.assistant.name):
-            # assistant_response = response_from_llm(prompt)
-            # st.markdown(assistant_response)
-            assistant_response = st.write(response_from_langchain(prompt=prompt, message_history=st.session_state.messages))
+            assistant_response = st.write(response_from_langgraph(prompt=prompt, message_history=st.session_state.messages))
 
         # st.session_state.messages.append(message)
 
