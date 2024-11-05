@@ -50,7 +50,7 @@ st.title("Chat Bot Memory Exam")
 
 page = st.sidebar.selectbox(
     "Select a page",
-    ["streamlit_main_page", "langchain_agent", "langchain_chatbot", "langchain_langgraph", "langchain_memory_exam", "langchain_final_mini"],  # "Select a page" 옵션 제거
+    ["streamlit_main_page", "langchain_agent", "langchain_chatbot", "langchain_langgraph", "langchain_memory_exam", "langchain_final_mini", "langchain_vectordb"],  # "Select a page" 옵션 제거
     index=4  # langchain_agent를 기본 선택값으로 설정
 )
 
@@ -65,6 +65,8 @@ elif page == "langchain_langgraph":
     switch_page("langchain_langgraph")
 elif page == "langchain_final_mini":
     switch_page("langchain_final_mini")
+elif page == "langchain_vectordb":
+    switch_page("langchain_vectordb_page")
 
 # ... existing code ...
 

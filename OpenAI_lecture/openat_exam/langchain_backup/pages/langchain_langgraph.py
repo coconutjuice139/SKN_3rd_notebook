@@ -51,18 +51,21 @@ st.title("LangGraph Agent Chatbot")
 
 page = st.sidebar.selectbox(
     "Select a page",
-    ["streamlit_main_page", "langchain_agent", "langchain_chatbot", "langchain_langgraph", "langchain_memory_exam"],  # "Select a page" 옵션 제거
+    ["streamlit_main_page", "langchain_agent", "langchain_chatbot", "langchain_langgraph", "langchain_memory_exam", "langchain_final_mini"],  # "Select a page" 옵션 제거
     index=3  # langchain_agent를 기본 선택값으로 설정
 )
+
 # 페이지 이동
 if page == "home":
     switch_page("streamlit_main_page")
 elif page == "langchain_agent":
     switch_page("langchain_agent")
-elif page == "langchain_langgraph":
-    switch_page("langchain_langgraph")
-elif page == "langchain_memory_exam":
+elif page == "langchain_chatbot":
+    switch_page("langchain_chatbot")
+elif page == "langchain_memory":
     switch_page("langchain_memory_exam")
+elif page == "langchain_final_mini":
+    switch_page("langchain_final_mini")
 
 
 
