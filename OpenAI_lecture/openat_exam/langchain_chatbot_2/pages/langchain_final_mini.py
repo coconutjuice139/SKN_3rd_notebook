@@ -98,6 +98,7 @@ if prompt:
             # assistant_response = response_from_llm(prompt)
             # st.markdown(assistant_response)
             assistant_response = st.write(response_from_langgraph(prompt=prompt, message_history=st.session_state.messages))
+            # st.session_state.messages.append({"role": "assistant", "content": assistant_response})
 
 
 

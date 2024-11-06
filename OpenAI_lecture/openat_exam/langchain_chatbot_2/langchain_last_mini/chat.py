@@ -19,7 +19,15 @@ def response_from_langgraph(prompt, message_history=[], model_id:str="gpt-4o-min
             "intermediate_steps":[]}
     config={"configurable": {"thread_id": "1"}}
     output = set_workflow_to_app().invoke(inputs, config)
-    response_from_graph = output['agent_outcome'].content
+    print(f"output={output}")
+    try:
+        response_from_graph = output['agent_outcome'].return_values['output']  
+    except:
+        response_from_graph = output['agent_outcome']
+    #     try:
+    #         response_from_graph = output['agent_outcome'].content
+    #     except:
+            # pass
     # message_history.append({"role": "assistant", "content": response_from_graph})
     return response_from_graph
 

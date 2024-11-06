@@ -19,7 +19,7 @@ def create_graph_structure():
             "final_response": "memory_node"
         }
     )
-    workflow.add_edge('action', 'agent')
+    workflow.add_edge('action', 'memory_node')
     workflow.add_edge("memory_node", END)
     return workflow
 

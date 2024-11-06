@@ -99,7 +99,7 @@ if prompt:
         with st.chat_message(CHATBOT_ROLE.assistant.name):
             # assistant_response = response_from_llm(prompt)
             # st.markdown(assistant_response)
-            assistant_response = st.write(make_img_query(prompt=prompt))#, message_history=st.session_state.messages))
+            assistant_response = st.write(make_img_query(prompt=prompt, message_history=st.session_state.messages))
             st.image(assistant_response)
 
 

@@ -9,10 +9,10 @@ import streamlit as st
 def get_client(model_id='gpt-4o-mini', temperature = 0):
     return ChatOpenAI(model = model_id, temperature=temperature)
 
-def response_taviny_results():
+def response_taviny_results(prompt):
     # TavilySearchResults 클래스의 인스턴스를 생성합니다
     # k=5은 검색 결과를 5개까지 가져오겠다는 의미입니다
-    search = TavilySearchResults(k=5)
+    search = TavilySearchResults(k=3)
 
     # tools 리스트에 search와 retriever_tool을 추가합니다.
     tools = [search]
@@ -30,6 +30,7 @@ def response_taviny_results():
     # AgentExecutor 클래스를 사용하여 agent와 tools를 설정하고, 상세한 로그를 출력하도록 verbose를 True로 설정합니다.
     agent_executor = AgentExecutor(agent=agent, tools=tools, verbose=False)
 
-    # response = agent_executor.invoke({"input": prompt})
+    response = agent_executor.invoke({"input": prompt})
+    # print(f'taviny response = {response}')
 
-    return agent_executor
+    return response['output']
