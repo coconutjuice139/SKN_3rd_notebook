@@ -169,20 +169,20 @@ Resources:
   #   실시간 서비스 오류 알림을 처리하기에는 부적합
   #   인프라 측면에서 요금/자원/보안 등의 알림 설정으로는 적합
   ##########################################################################
-  PublisherAlarm:
+  PublisherAlarm: # 이게 알람을 만드는 요소
     Type: AWS::CloudWatch::Alarm
     DependsOn: 
       - SlackTopic
     Properties:
       AlarmName: !Sub ${ServiceType}-${DefaultName}-Alarm
-      AlarmDescription: "Error occurring alarm and send it to sns if greater than zero"
+      AlarmDescription: "Error occurring alarm and send it to sns if greater than zero" # 이게 알람 메세지 이게 slack으로 전송된다.
       AlarmActions:
         - !Ref SlackTopic
       ComparisonOperator: GreaterThanThreshold
       Dimensions:
         - Name: FunctionName
-          Value: !Ref TestLambda
-      EvaluationPeriods: 1
+          Value: !Ref TestLambda # test 디렉토리(비즈니스 로직)에서 오류가 발생하면 알람이 발생한다. 이건 여러 개를 설정할 수 있다.
+      EvaluationPeriods: 1 # 에러가 단 1개라도 발생하면 알람을 발생시킨다.
       MetricName: Errors
       Namespace: AWS/Lambda
       Period: 60
