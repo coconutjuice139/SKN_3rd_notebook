@@ -1,0 +1,30 @@
+# FastAPI 및 서버
+fastapi
+uvicorn[standard]
+fastapi[standard]
+fastapi-health
+
+# 데이터베이스
+sqlalchemy
+asyncmy  # MySQL 사용 시
+# asyncpg==0.27.0  # PostgreSQL 사용 시
+pymysql
+
+# AWS 연동
+boto3
+
+# 데이터 검증 및 유틸리티
+pydantic
+python-dotenv
+
+# 로그 관리 및 테스트
+loguru
+pytest
+httpx
+
+# # JWT 및 인증 (필요 시)
+# pyjwt==2.7.0
+# passlib[bcrypt]==1.7.4
+
+# # 데이터베이스 마이그레이션 (선택)
+# alembic==1.12.0
