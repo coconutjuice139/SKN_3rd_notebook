@@ -7,10 +7,10 @@ from langchain_last_mini.langgraph.agent import create_openai_langgraph_agent
 from langchain_last_mini.langgraph.img_save import save_langgraph_structure_img
 import time
 
-# @st.cache_data # 데이터를 caching 처리 
-@st.cache_resource # 객체를 caching 처리 
-def get_client():
-    return OpenAI()
+# # @st.cache_data # 데이터를 caching 처리 
+# @st.cache_resource # 객체를 caching 처리 
+# def get_client():
+#     return OpenAI()
 
 def response_from_langgraph(prompt, message_history=[], model_id:str="gpt-4o-mini"):
     # save_langgraph_structure_img()
@@ -19,7 +19,7 @@ def response_from_langgraph(prompt, message_history=[], model_id:str="gpt-4o-min
             "intermediate_steps":[]}
     config={"configurable": {"thread_id": "1"}}
     output = set_workflow_to_app().invoke(inputs, config)
-    print(f"output={output}")
+    # print(f"output={output}")
     try:
         response_from_graph = output['agent_outcome'].return_values['output']  
     except:
@@ -29,7 +29,12 @@ def response_from_langgraph(prompt, message_history=[], model_id:str="gpt-4o-min
     #     except:
             # pass
     # message_history.append({"role": "assistant", "content": response_from_graph})
-    return response_from_graph
+    
+    for chunk in response_from_graph:
+        if chunk is not None:
+            yield chunk  # 여기서 chunk를 한 조각씩 반환
+            time.sleep(0.01)
+    # return response_from_graph
 
 
 def response_from_langchain(prompt, message_history=[], model_id:str="gpt-4o-mini"):
