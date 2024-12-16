@@ -6,7 +6,7 @@ const SideCard = () => {
         <div style={styles.sidebar}>
                 <img src={profileImage} alt="Profile" style={styles.profileImage} />
                 <h2 style={styles.blogTitle}>Eddy's Blog</h2>
-                <p style={styles.description}>Welcome to my blog!</p>
+                <p style={styles.description}>에디의 일기🦊✏️</p>
         </div>
     )
 }

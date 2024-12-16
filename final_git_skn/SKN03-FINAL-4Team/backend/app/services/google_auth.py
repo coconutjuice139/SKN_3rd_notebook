@@ -78,7 +78,7 @@ async def handle_google_callback(request: Request, db: AsyncSession):
         await db.commit()
 
         # Step 6: RedirectResponse로 리디렉트 처리
-        redirect_url = "https://www.jamesmoon.click/contact"
+        redirect_url = "https://www.jamesmoon.click/contact/report"
         response = RedirectResponse(url=redirect_url, status_code=302)
         response.set_cookie(
             key="access_token", value=access_token, httponly=True, samesite="Lax", secure=False

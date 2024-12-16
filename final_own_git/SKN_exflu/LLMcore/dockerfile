@@ -9,15 +9,15 @@ RUN apt-get update && apt-get install -y \
     git \
     && rm -rf /var/lib/apt/lists/*
 
-# pip 업그레이드 추가
-RUN pip install --upgrade pip
-    
 # 코드 복사 
 COPY ./openai_chatbot /app
 COPY ./requirements.txt /app
 
 # 실행 폴더 정의 
 WORKDIR /app
+
+# Set PYTHONPATH for project root
+ENV PYTHONPATH=/app
 
 # 필요한 라이브러리 설치  
 RUN pip3 install -r ./requirements.txt
@@ -27,4 +27,4 @@ EXPOSE 8502
 # 컨테이너 실행 유무 확인 
 HEALTHCHECK CMD curl --fail http://localhost:8502/_stcore/health
 # 웹서버 실행 
-ENTRYPOINT ["streamlit", "run", "llm_model.py", "--server.port=8502", "--server.address=0.0.0.0"]
+ENTRYPOINT ["streamlit", "run", "main.py", "--server.port=8502", "--server.address=0.0.0.0"]
