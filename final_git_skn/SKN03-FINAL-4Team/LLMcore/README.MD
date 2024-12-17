@@ -1,5 +1,17 @@
 # LLMcore - AI 챗봇 프로젝트
 
+<div align="center">
+  
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)
+![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white)
+![OpenAI](https://img.shields.io/badge/OpenAI-412991?style=for-the-badge&logo=openai&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
+![AWS](https://img.shields.io/badge/AWS-232F3E?style=for-the-badge&logo=amazon-aws&logoColor=white)
+![Pandas](https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white)
+
+</div>
+
 ## 프로젝트 개요
 이 프로젝트는 OpenAI와 LangChain을 활용한 고급 AI 챗봇 애플리케이션입니다. Streamlit을 사용하여 사용자 친화적인 웹 인터페이스를 제공하며, Docker를 통한 컨테이너화를 지원합니다. 
 
@@ -30,19 +42,22 @@
 - 데이터 CRUD 작업 지원
 
 ## 기술 스택
-- **프론트엔드**: 
-  - Streamlit
-  - Streamlit-extras
-- **백엔드**: 
-  - Python 3.10
-  - FastAPI
-  - LangChain
-  - OpenAI
-- **데이터베이스**: 
-  - AWS 서비스 연동 (boto3)
-- **인프라**: 
-  - Docker
-  - AWS 클라우드 서비스
+### 프론트엔드 ![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=flat-square&logo=streamlit&logoColor=white)
+- Streamlit
+- Streamlit-extras
+
+### 백엔드 ![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white) ![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=flat-square&logo=fastapi&logoColor=white)
+- Python 3.10
+- FastAPI
+- LangChain
+- OpenAI ![OpenAI](https://img.shields.io/badge/OpenAI-412991?style=flat-square&logo=openai&logoColor=white)
+
+### 데이터베이스 ![AWS](https://img.shields.io/badge/AWS-232F3E?style=flat-square&logo=amazon-aws&logoColor=white)
+- AWS 서비스 연동 (boto3)
+
+### 인프라 ![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white)
+- Docker
+- AWS 클라우드 서비스
 
 ## 프로젝트 구조
 ```
@@ -106,11 +121,11 @@ docker run -p 8502:8502 llmcore
 - 기본 포트: 8502 (Streamlit 웹 서버)
 
 ## 의존성 패키지
-### 웹 프레임워크
+### 웹 프레임워크 ![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=flat-square&logo=streamlit&logoColor=white)
 - streamlit
 - streamlit-extras
 
-### AI/ML
+### AI/ML ![OpenAI](https://img.shields.io/badge/OpenAI-412991?style=flat-square&logo=openai&logoColor=white)
 - openai
 - langchain
 - langchain_core
@@ -118,10 +133,10 @@ docker run -p 8502:8502 llmcore
 - langchain-community
 - langgraph
 
-### 클라우드/데이터베이스
+### 클라우드/데이터베이스 ![AWS](https://img.shields.io/badge/AWS-232F3E?style=flat-square&logo=amazon-aws&logoColor=white)
 - boto3
 
-### 유틸리티
+### 유틸리티 ![Pandas](https://img.shields.io/badge/Pandas-150458?style=flat-square&logo=pandas&logoColor=white)
 - datetime
 - pandas
 
@@ -135,4 +150,4 @@ docker run -p 8502:8502 llmcore
 2. Create your feature branch
 3. Commit your changes
 4. Push to the branch
-5. Create a new Pull Request 
+5. Create a new Pull Request

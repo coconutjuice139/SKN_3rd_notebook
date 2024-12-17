@@ -1,8 +1,41 @@
 # SKN03-FINAL-4Team Backend
 
-## 기술 스택
+## 기술 스택 개요
+<div align="center">
+  <h3>🛠 Backend Framework & Language</h3>
+  <img src="https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=FastAPI&logoColor=white">
+  <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=Python&logoColor=white">
+  <img src="https://img.shields.io/badge/SQLAlchemy-D71F00?style=for-the-badge&logo=SQLAlchemy&logoColor=white">
+  <br>
+  
+  <h3>💾 Database</h3>
+  <img src="https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=MySQL&logoColor=white">
+  <br>
+  
+  <h3>🔐 Authentication</h3>
+  <img src="https://img.shields.io/badge/Google_OAuth-4285F4?style=for-the-badge&logo=Google&logoColor=white">
+  <img src="https://img.shields.io/badge/Kakao_OAuth-FFCD00?style=for-the-badge&logo=Kakao&logoColor=black">
+  <img src="https://img.shields.io/badge/JWT-000000?style=for-the-badge&logo=JSON%20web%20tokens&logoColor=white">
+  <br>
+  
+  <h3>🤖 AI Integration</h3>
+  <img src="https://img.shields.io/badge/OpenAI-412991?style=for-the-badge&logo=OpenAI&logoColor=white">
+  <br>
+  
+  <h3>☁️ Cloud & Deploy</h3>
+  <img src="https://img.shields.io/badge/Amazon_AWS-232F3E?style=for-the-badge&logo=Amazon-AWS&logoColor=white">
+  <img src="https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=Docker&logoColor=white">
+  <br>
+  
+  <h3>⚙️ Development Tools</h3>
+  <img src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=Git&logoColor=white">
+  <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=GitHub&logoColor=white">
+  <img src="https://img.shields.io/badge/PyTest-0A9EDC?style=for-the-badge&logo=PyTest&logoColor=white">
+</div>
 
-### 주요 프레임워크 및 라이브러리
+## 상세 기술 스택
+
+### 주요 프레임워크 및 라이브러리 <img src="https://img.shields.io/badge/FastAPI-009688?style=flat-square&logo=FastAPI&logoColor=white"> <img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=Python&logoColor=white">
 - **FastAPI**: 고성능 비동기 웹 프레임워크
   - CORS 미들웨어 지원
   - 세션 관리
@@ -17,14 +50,14 @@
   - GPT 모델 통합
   - AI 기반 컨텐츠 생성
 
-### 데이터베이스
+### 데이터베이스 <img src="https://img.shields.io/badge/MySQL-4479A1?style=flat-square&logo=MySQL&logoColor=white">
 - **MySQL**: 메인 데이터베이스
   - asyncmy: 비동기 MySQL 드라이버
   - pymysql: 동기 MySQL 드라이버
   - 트랜잭션 관리
   - 연결 풀링
 
-### 인증 및 보안
+### 인증 및 보안 <img src="https://img.shields.io/badge/JWT-000000?style=flat-square&logo=JSON%20web%20tokens&logoColor=white"> <img src="https://img.shields.io/badge/OAuth-4285F4?style=flat-square&logo=Google&logoColor=white">
 - **소셜 로그인**:
   - Google OAuth2.0 인증
   - Kakao OAuth 인증
@@ -34,7 +67,7 @@
 - **Passlib**: 비밀번호 해싱 (bcrypt)
 - **Session Middleware**: 세션 기반 상태 관리
 
-### 클라우드 및 인프라
+### 클라우드 및 인프라 <img src="https://img.shields.io/badge/AWS-232F3E?style=flat-square&logo=amazon-aws&logoColor=white"> <img src="https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=Docker&logoColor=white">
 - **AWS 서비스**:
   - AWS SDK (boto3)
   - AWS CodeBuild
@@ -43,7 +76,7 @@
   - 멀티스테이지 빌드
   - 환경 변수 관리
 
-### 개발 도구
+### 개발 도구 <img src="https://img.shields.io/badge/Git-F05032?style=flat-square&logo=Git&logoColor=white"> <img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=GitHub&logoColor=white"> <img src="https://img.shields.io/badge/PyTest-0A9EDC?style=flat-square&logo=pytest&logoColor=white">
 - **Loguru**: 구조화된 로깅
   - 로그 레벨 관리
   - 로그 포맷팅
