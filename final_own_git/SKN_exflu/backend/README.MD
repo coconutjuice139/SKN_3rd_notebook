@@ -33,6 +33,8 @@
   <img src="https://img.shields.io/badge/PyTest-0A9EDC?style=for-the-badge&logo=PyTest&logoColor=white">
 </div>
 
+
+
 ## 상세 기술 스택
 
 ### 주요 프레임워크 및 라이브러리 <img src="https://img.shields.io/badge/FastAPI-009688?style=flat-square&logo=FastAPI&logoColor=white"> <img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=Python&logoColor=white">
@@ -220,3 +222,18 @@ docker run -d -p 8000:8000 --env-file .env backend-app
 - 프로세스 모니터링: `/process-check`
 - 로그 확인: `app.log` 파일
 - AWS CloudWatch 통합 모니터링
+
+## API 문서
+- Swagger UI: `http://localhost:8000/docs`
+- ReDoc: `http://localhost:8000/redoc`
+
+## 테스트
+```bash
+# 테스트 실행
+pytest
+```
+
+## 개발 가이드라인
+- Python 코드 스타일: Black + isort
+- 테스트 커버리지 유지
+- 커밋 메시지: Conventional Commits 형식 사용
