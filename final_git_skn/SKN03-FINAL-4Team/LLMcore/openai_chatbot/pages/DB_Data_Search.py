@@ -9,15 +9,20 @@ st.title("Connection_test")
 st.write("Welcome to Page 1! Use the buttons below to navigate.")
 
 # 버튼 가로 배치
-col1, col2, _ = st.columns([1, 1, 3])  # 두 개의 열 생성
+col1, col2, col3,_ = st.columns([1, 1, 1, 1])
 
+# 버튼으로 페이지 이동
 with col1:
     if st.button("Main Page"):
         switch_page("main")
-
 with col2:
-    if st.button("LLM Model"):
-        switch_page("llm_model")
+    if st.button("OpenAI LLM Model"):
+        switch_page("openapi_model")
+with col3:
+    if st.button("Exaone LLM Model"):
+        switch_page("exaone_model")
+
+
         
 # Streamlit 제목
 st.title("FastAPI와 Streamlit 간 송수신 테스트")

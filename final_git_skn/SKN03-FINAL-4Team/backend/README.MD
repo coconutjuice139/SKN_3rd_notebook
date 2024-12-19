@@ -90,30 +90,42 @@
 
 ```
 backend/
-├── app/                    # 메인 애플리케이션 디렉토리
-│   ├── auth/              # 인증 관련 모듈
-│   │   ├── token.py      # JWT 토큰 관리
-│   │   └── oauth.py      # OAuth 인증
-│   ├── common/            # 공통 유틸리티
-│   │   └── utils.py      # 유틸리티 함수
-│   ├── database/          # 데이터베이스 설정 및 모델
-│   │   ├── database.py   # DB 연결 설정
-│   │   └── models.py     # SQLAlchemy 모델
-│   ├── router/           # API 엔드포인트
-│   │   ├── blog.py      # 블로그 관련 API
-│   │   ├── sns.py       # SNS 통합 API
-│   │   ├── core.py      # 핵심 기능 API
-│   │   ├── biz_info.py  # 비즈니스 정보 API
-│   │   ├── google_auth.py # Google 인증
-│   │   └── kakao_auth.py  # Kakao 인증
-│   ├── schemas/          # Pydantic 모델/스키마
-│   ├── services/         # 비즈니스 로직
-│   ├── main.py          # 애플리케이션 진입점
-│   ├── logger.py        # 로깅 설정
-│   └── settings.py      # 환경 설정
-├── requirements.txt      # 의존성 패키지 목록
-├── Dockerfile           # Docker 빌드 설정
-└── buildspec.yml        # AWS CodeBuild 설정
+├── app/                       # 메인 애플리케이션 디렉토리
+│   ├── auth/                  # 인증 관련 모듈
+│   │   ├── token.py           # JWT 토큰 관리
+│   │   └── oauth.py           # OAuth 인증
+│   │   
+│   ├── common/                # 공통 유틸리티
+│   │   ├── config.py          # 공통 변수 관리
+│   │   ├── consts.py          # 공통 상수 관리
+│   │   └── utils.py           # 유틸리티 함수
+│   │   
+│   ├── database/              # 데이터베이스 설정 및 모델
+│   │   ├── database.py        # DB 연결 설정
+│   │   └── models.py          # SQLAlchemy 모델
+│   │   
+│   ├── router/                # API 엔드포인트
+│   │   ├── biz_contacts.py    # 비즈니스 세부부정보 API
+│   │   ├── biz_info.py        # 비즈니스 정보 API
+│   │   ├── blog.py            # 블로그 관련 API
+│   │   ├── core_check.py      # 핵심 기능 점검검 API
+│   │   ├── core.py            # 핵심 기능 API
+│   │   ├── ollama.py          # ollama API
+│   │   ├── google_auth.py     # Google 인증
+│   │   ├── healthcheck.py     # AWS healthcheck 인증
+│   │   ├── kakao_auth.py      # Kakao 인증
+│   │   ├── sns.py             # SNS 통합 API
+│   │   └── test.py            # 기능 테스트 API
+│   │   
+│   ├── schemas/               # Pydantic 모델/스키마
+│   ├── services/              # 비즈니스 로직
+│   ├── main.py                # 애플리케이션 진입점
+│   ├── logger.py              # 로깅 설정
+│   └── settings.py            # 환경 설정
+│   
+├── requirements.txt           # 의존성 패키지 목록
+├── Dockerfile                 # Docker 빌드 설정
+└── buildspec.yml              # AWS CodeBuild 설정
 ```
 
 ## API 엔드포인트
@@ -162,6 +174,7 @@ backend/
 
 5. **AI 통합**
    - OpenAI API 활용
+   - Ollama API 활용
    - 컨텐츠 생성
    - 자연어 처리
 

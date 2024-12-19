@@ -4,37 +4,41 @@
 
 ```
 backend/
-├── app/                   # 메인 애플리케이션 디렉토리
-│   ├── auth/              # 인증 관련 모듈
-│   │   ├── token.py       # JWT 토큰 관리
-│   │   └── oauth.py       # OAuth 인증
+├── app/                       # 메인 애플리케이션 디렉토리
+│   ├── auth/                  # 인증 관련 모듈
+│   │   ├── token.py           # JWT 토큰 관리
+│   │   └── oauth.py           # OAuth 인증
 │   │   
-│   ├── common/            # 공통 유틸리티
-│   │   ├── config.py      # 공통 변수 관리
-│   │   ├── consts.py      # 공통 상수 관리
-│   │   └── utils.py       # 유틸리티 함수
+│   ├── common/                # 공통 유틸리티
+│   │   ├── config.py          # 공통 변수 관리
+│   │   ├── consts.py          # 공통 상수 관리
+│   │   └── utils.py           # 유틸리티 함수
 │   │   
-│   ├── database/          # 데이터베이스 설정 및 모델
-│   │   ├── database.py    # DB 연결 설정
-│   │   └── models.py      # SQLAlchemy 모델
+│   ├── database/              # 데이터베이스 설정 및 모델
+│   │   ├── database.py        # DB 연결 설정
+│   │   └── models.py          # SQLAlchemy 모델
 │   │   
-│   ├── router/            # API 엔드포인트
-│   │   ├── blog.py        # 블로그 관련 API
-│   │   ├── sns.py         # SNS 통합 API
-│   │   ├── core.py        # 핵심 기능 API
-│   │   ├── biz_info.py    # 비즈니스 정보 API
-│   │   ├── google_auth.py # Google 인증
-│   │   └── kakao_auth.py  # Kakao 인증
+│   ├── router/                # API 엔드포인트
+│   │   ├── biz_contacts.py    # 비즈니스 세부부정보 API
+│   │   ├── biz_info.py        # 비즈니스 정보 API
+│   │   ├── blog.py            # 블로그 관련 API
+│   │   ├── core_check.py      # 핵심 기능 점검검 API
+│   │   ├── core.py            # 핵심 기능 API
+│   │   ├── google_auth.py     # Google 인증
+│   │   ├── healthcheck.py     # AWS healthcheck 인증
+│   │   ├── kakao_auth.py      # Kakao 인증
+│   │   ├── sns.py             # SNS 통합 API
+│   │   └── test.py            # 기능 테스트 API
 │   │   
-│   ├── schemas/           # Pydantic 모델/스키마
-│   ├── services/          # 비즈니스 로직
-│   ├── main.py            # 애플리케이션 진입점
-│   ├── logger.py          # 로깅 설정
-│   └── settings.py        # 환경 설정
+│   ├── schemas/               # Pydantic 모델/스키마
+│   ├── services/              # 비즈니스 로직
+│   ├── main.py                # 애플리케이션 진입점
+│   ├── logger.py              # 로깅 설정
+│   └── settings.py            # 환경 설정
 │   
-├── requirements.txt       # 의존성 패키지 목록
-├── Dockerfile             # Docker 빌드 설정
-└── buildspec.yml          # AWS CodeBuild 설정
+├── requirements.txt           # 의존성 패키지 목록
+├── Dockerfile                 # Docker 빌드 설정
+└── buildspec.yml              # AWS CodeBuild 설정
 ```
 
 ## Backend 기술 스택
@@ -130,6 +134,8 @@ pytest
 - 커밋 메시지: Conventional Commits 형식 사용
 
 
+---
+
 ## Frontend 구조
 
 ```
@@ -203,9 +209,6 @@ frontend/
 ### 사용 기술 스택
 <div align="center">
   <img src="https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=React&logoColor=black">
-  <img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=TypeScript&logoColor=white">
-  <img src="https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=Vite&logoColor=white">
-  <img src="https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=for-the-badge&logo=Tailwind-CSS&logoColor=white">
   <img src="https://img.shields.io/badge/Redux-764ABC?style=for-the-badge&logo=Redux&logoColor=white">
   <img src="https://img.shields.io/badge/React_Query-FF4154?style=for-the-badge&logo=React-Query&logoColor=white">
   <img src="https://img.shields.io/badge/Axios-5A29E4?style=for-the-badge&logo=Axios&logoColor=white">
@@ -214,6 +217,8 @@ frontend/
   <img src="https://img.shields.io/badge/Prettier-F7B93E?style=for-the-badge&logo=Prettier&logoColor=black">
   <img src="https://img.shields.io/badge/npm-CB3837?style=for-the-badge&logo=npm&logoColor=white">
   <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=Node.js&logoColor=white">
+  <img src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=Git&logoColor=white">
+  <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=GitHub&logoColor=white">
 </div>
 
 ## Frontend 주요 기능
@@ -223,15 +228,17 @@ frontend/
 - JWT 토큰 관리
 - 인증 상태 유지
 
-### 2. 채팅 인터페이스
-- 실시간 메시지 송수신
-- 채팅방 목록 관리
-- 메시지 히스토리 표시
-- 타이핑 인디케이터
+### 2. 블로그 인터페이스
+- 게시글 작성 및 수정
+- 댓글 및 좋아요 기능
+- 마크다운 에디터 지원
 
 ### 3. 반응형 디자인
-- 모바일 대응 레이아웃
-- 다크모드 지원
+- 모바일 대응 레이아웃 
+- 동적 이벤트 효과
+  - 눈 내리는 효과
+  - 스크롤 애니메이션
+  - 호버 인터랙션
 
 ## Frontend 설치 및 실행
 
@@ -250,8 +257,8 @@ npm run dev
 
 ### 환경변수 설정 (.env)
 ```
-VITE_API_URL=http://localhost:8000
-VITE_WS_URL=ws://localhost:8000
+VITE_API_URL=http://localhost:3000
+VITE_WS_URL=ws://localhost:3000
 ```
 
 ## 개발 가이드라인
@@ -280,7 +287,9 @@ npm run build
 npm run preview
 ```
 
-## LLMCore 구조
+---
+
+# LLMCore 구조
 
 ```
 LLMcore/
@@ -289,14 +298,23 @@ LLMcore/
 │   ├── pages/
 │   │   ├── llm_model.py          # LLM 챗봇 인터페이스
 │   │   └── DB_Data_Search.py     # 데이터베이스 검색 인터페이스
-│   │   
-│   └── langchain_last_mini/      # LangChain 관련 모듈
-│       ├── chat.py               # 챗봇 핵심 로직
-│       ├── chain.py              # LangChain 체인 구현
-│       ├── constant.py           # 상수 정의
-│       ├── model.py              # 모델 설정
-│       ├── prompt.py             # 프롬프트 템플릿
-│       └── utils.py              # 유틸리티 함수
+│   │
+│   ├── langchain_openai_api/      # LangChain 관련 모듈
+│   │   ├── langgraph/
+│   │   │   ├── agent.py          # langgraph agent 설정
+│   │   │   ├── graph.py          # langgraph compile 로직 설정
+│   │   │   ├── nodes.py          # langgraph nodes 정의
+│   │   │   ├── state.py          # langgraph state 정의
+│   │   │   └── tools.py          # langgraph tools 정의의
+│   │   └── taviny/
+│   │       └──taviny.py          # 검색 엔진 모듈듈
+│   │ 
+│   ├── chat.py                   # 챗봇 핵심 로직
+│   ├── chain.py                  # LangChain 체인 구현
+│   ├── constant.py               # 상수 정의
+│   ├── model.py                  # 모델 설정
+│   ├── prompt.py                 # 프롬프트 템플릿
+│   └── utils.py                  # 유틸리티 함수
 │ 
 ├── dockerfile                    # Docker 컨테이너 설정
 ├── requirements.txt              # 프로젝트 의존성

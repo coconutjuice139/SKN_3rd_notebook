@@ -68,18 +68,29 @@
 ```
 LLMcore/
 ├── openai_chatbot/
-│   ├── main.py                    # 메인 애플리케이션 진입점
+│   ├── main.py                   # 메인 애플리케이션 진입점
 │   ├── pages/
 │   │   ├── llm_model.py          # LLM 챗봇 인터페이스
 │   │   └── DB_Data_Search.py     # 데이터베이스 검색 인터페이스
-│   └── langchain_last_mini/      # LangChain 관련 모듈
-│       ├── chat.py               # 챗봇 핵심 로직
-│       ├── chain.py              # LangChain 체인 구현
-│       ├── constant.py           # 상수 정의
-│       ├── model.py              # 모델 설정
-│       ├── prompt.py             # 프롬프트 템플릿
-│       └── utils.py              # 유틸리티 함수
-├── dockerfile                     # Docker 컨테이너 설정
+│   │
+│   ├── langchain_openai_api/      # LangChain 관련 모듈
+│   │   ├── langgraph/
+│   │   │   ├── agent.py          # langgraph agent 설정
+│   │   │   ├── graph.py          # langgraph compile 로직 설정
+│   │   │   ├── nodes.py          # langgraph nodes 정의
+│   │   │   ├── state.py          # langgraph state 정의
+│   │   │   └── tools.py          # langgraph tools 정의의
+│   │   └── taviny/
+│   │       └──taviny.py          # 검색 엔진 모듈듈
+│   │ 
+│   ├── chat.py                   # 챗봇 핵심 로직
+│   ├── chain.py                  # LangChain 체인 구현
+│   ├── constant.py               # 상수 정의
+│   ├── model.py                  # 모델 설정
+│   ├── prompt.py                 # 프롬프트 템플릿
+│   └── utils.py                  # 유틸리티 함수
+│ 
+├── dockerfile                    # Docker 컨테이너 설정
 ├── requirements.txt              # 프로젝트 의존성
 └── buildspec.yml                 # AWS 빌드 설정
 ```
