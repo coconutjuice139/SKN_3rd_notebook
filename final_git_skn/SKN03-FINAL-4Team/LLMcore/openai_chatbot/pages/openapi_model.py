@@ -52,14 +52,9 @@ if prompt:
         # 화면에 표현
         with st.chat_message(CHATBOT_ROLE.user.name):
             st.write(prompt)
-        # st.session_state.messages.append({"role" : "user", "content": prompt})
         # 챗봇 답변 
         with st.chat_message(CHATBOT_ROLE.assistant.name):
-            # assistant_response = response_from_llm(prompt)
-            # st.markdown(assistant_response)
             assistant_response = st.write(response_from_langgraph(prompt=prompt, message_history=st.session_state.messages))
-            # st.session_state.messages.append({"role": "assistant", "content": assistant_response})
-            # print(f'message = {st.session_state.messages[-1]['content']}')
 
 st.write("### 결과 저장하기")
 with st.expander("결과 저장하기", expanded=False):  # expanded=False로 기본적으로 접힘 상태

@@ -83,52 +83,6 @@ class BlogCommentSimple(Base):
     # BlogPost 관계 설정
     blog_post = relationship("BlogPostSimple", back_populates="comments")
 
-# # BlogPost 모델 정의
-# class BlogPost(Base):
-#     __tablename__ = "blog_posts"
-
-#     post_id = Column(Integer, primary_key=True, index=True)  # 블로그 ID
-#     title = Column(String(255), nullable=False)  # 블로그 제목
-#     created_at = Column(DateTime, default=datetime.now() + timedelta(hours=9))
-#     views = Column(Integer, default=0)
-#     likes = Column(Integer, default=0)
-#     is_ad = Column(Boolean, default=False)  # 광고 여부
-#     comments_count = Column(Integer, default=0)  # 댓글 수 필드
-#     product_id = Column(Integer, ForeignKey("Products.product_id"))
-
-#     # 블록 관계 설정
-#     blocks = relationship("ContentBlock", back_populates="blog_post")
-    
-#     # BlogComment 관계 설정
-#     comments = relationship("BlogComment", back_populates="blog_post")
-
-# class ContentBlock(Base):
-#     __tablename__ = "content_blocks"
-    
-#     block_id = Column(Integer, primary_key=True, index=True)
-#     post_id = Column(Integer, ForeignKey("blog_posts.post_id"), nullable=False)  # 블로그 ID
-#     block_type = Column(Enum("text", "image"), nullable=False)
-#     content = Column(Text, nullable=False)
-#     block_order = Column(Integer, nullable=False)
-
-#     # BlogPost 관계
-#     blog_post = relationship("BlogPostSimple", back_populates="blocks")
-    
-
-# class BlogComment(Base):
-#     __tablename__="blogcomments"
-    
-#     comment_id = Column(Integer,primary_key=True, index=True)
-#     post_id = Column(Integer, ForeignKey("blog_posts.post_id"), nullable=False)
-#     comment_name = Column(String(50), nullable=False)
-#     comment_password = Column(String(50), nullable=False)
-#     comment_content = Column(Text, nullable=False)
-#     created_at = Column(DateTime, default=datetime.now())
-    
-#     # BlogPost 관계 설정
-#     blog_post = relationship("BlogPost", back_populates="comments")
-
-
 # SNSPost 모델 정의
 class SNSPost(Base):
     __tablename__ = "sns_posts"

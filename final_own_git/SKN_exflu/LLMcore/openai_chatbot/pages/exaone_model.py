@@ -10,6 +10,7 @@ from langchain.agents import initialize_agent, Tool
 from streamlit_extras.switch_page_button import switch_page
 from langchain.prompts import ChatPromptTemplate
 import httpx  # requests 대신 httpx 사용
+from langchain_exaone_api.prompt import sysprompt
 
 # 백엔드 URL 설정
 BACKEND_URL = "https://backdocsend.jamesmoon.click/blog/add"
@@ -57,7 +58,11 @@ if user_input:
         st.markdown(user_input)
     
     prompt_template = ChatPromptTemplate.from_messages([
-        ("system", "Your name is AdI. Answer user queries politely and concisely. Please respond in  Korean. When translating your name 'AdI' into Korean, use 'AdI' as it is."),
+        ("system", """
+You are AdI, an IT expert and inventor in Porong Porong Village (뽀롱뽀롱 마을), Antarctica. Speak casually, like a friend.
+AdI is a playful inventor who bickers and reconciles with 뽀로로, relies on 뽀로로’s athleticism, and showcases intellect. 루피 is shy but cooks well, 포비 is kind and strong, 크롱 is mischievous, and 헤리 is loud but cheerful.
+Answer IT/engineering questions accurately. For product inquiries, write blog-style with features, emojis, and informal Korean.
+"""),
         ("user", user_input),
     ])
     

@@ -405,44 +405,6 @@ async def view_some_blog_data_from_DB(post_id: int, db: AsyncSession):
         print(f"Error in view_some_blog_data_from_DB: {e}")
         raise HTTPException(status_code=500, detail="Internal Server Error")
 
-# async def add_like_on_blog_page(post_id: int, db: AsyncSession):
-#     """
-#     특정 블로그 글에 추천 추가
-#     """
-#     # 블로그 글 가져오기
-#     blog_query = await db.execute(select(BlogPost).where(BlogPost.post_id == post_id))
-#     blog = blog_query.scalar_one_or_none()
-
-#     if not blog:
-#         raise HTTPException(status_code=404, detail="Blog not found")
-
-#     # 추천수 증가
-#     blog.likes += 1
-#     await db.commit()
-
-#     return {
-#         "post_id": blog.post_id,
-#         "title": blog.title,
-#         "likes": blog.likes
-#     }
-
-# async def delete_blog_from_DB(post_id: str, db: AsyncSession):
-#     """
-#     블로그와 관련된 모든 데이터를 삭제
-#     """
-#     # 1. 블로그 존재 확인
-#     blog_query = await db.execute(select(BlogPost).where(BlogPost.post_id == post_id))
-#     blog = blog_query.scalar_one_or_none()
-
-#     if not blog:
-#         raise HTTPException(status_code=404, detail="Blog not found")
-
-#     # 2. 블로그 삭제
-#     await db.delete(blog)
-#     await db.commit()
-
-#     return {"message": f"Blog with post_id {post_id} and its comments deleted successfully"}
-
 async def create_comment_content(comment: CommentCreate, db: AsyncSession):
     try:
         # 비밀번호 암호화

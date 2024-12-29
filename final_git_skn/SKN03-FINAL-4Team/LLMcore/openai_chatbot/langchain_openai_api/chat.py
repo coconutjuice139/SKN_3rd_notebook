@@ -23,17 +23,11 @@ def response_from_langgraph(prompt, message_history=[], model_id:str="gpt-4o-min
         response_from_graph = output['agent_outcome'].return_values['output']  
     except:
         response_from_graph = output['agent_outcome']
-    #     try:
-    #         response_from_graph = output['agent_outcome'].content
-    #     except:
-            # pass
-    # message_history.append({"role": "assistant", "content": response_from_graph})
     
     for chunk in response_from_graph:
         if chunk is not None:
             yield chunk  # 여기서 chunk를 한 조각씩 반환
             time.sleep(0.01)
-    # return response_from_graph
 
 
 def response_from_langchain(prompt, message_history=[], model_id:str="gpt-4o-mini"):

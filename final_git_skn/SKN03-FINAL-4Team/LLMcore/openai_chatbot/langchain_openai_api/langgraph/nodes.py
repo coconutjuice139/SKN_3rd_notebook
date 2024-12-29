@@ -17,16 +17,9 @@ def call_model(state):
     # print(state)
     # 필요 시 메시지를 트리밍
     trimmed_messages = set_trimmer().invoke(state["chat_history"])
-    print("--------------")
-    print(trimmed_messages)
     # 시스템 프롬프트와 메시지 설정
     messages = [SystemMessage(content="You are a helpful assistant. Answer all questions to the best of your ability.")] + trimmed_messages
-    # print(messages)
-    # print(f'save_response 111111 = {state}')
-    # 모델 호출
     # agent_outcome = creat_chat_model().invoke(messages)
-    # print(f'save_response 22222 = {state}')
-    # 상태 업데이트
     # state["agent_outcome"] = agent_outcome
     print(f'save_response 33333 = {state}')
     try:
@@ -54,14 +47,10 @@ def execute_tools(state):
 # 검색을 하는 함수
 def go_web_search(state):
     state["agent_outcome"] = response_taviny_results(state["input"])
-    # state["agent_outcome"] = app.invoke({"input": state["input"]})
-    # print(state)
-    # print(f'go_web_search_state = {state}')
     return state
 
 def is_response_adequate(state):
     response = state["agent_outcome"]
-    # print(f'is_response_adequate = {state}')
     # 간단한 검증 로직: 응답이 없거나 "모르겠습니다" 등의 패턴이 포함된 경우 부적절하다고 판단
     inadequate_responses = ["모르", "알 수 없", "죄송하"]
     if not response or any(phrase in response.return_values['output'] for phrase in inadequate_responses):

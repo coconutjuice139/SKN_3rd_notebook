@@ -36,7 +36,7 @@ async def generate_stream(payload: dict):
     JSON 데이터를 파싱하여 `response` 필드만 반환.
     """
     try:
-        timeout = httpx.Timeout(10.0, read=20.0)  # 타임아웃 설정
+        timeout = httpx.Timeout(20.0, read=30.0)  # 타임아웃 설정
         async with httpx.AsyncClient(timeout=timeout) as client:
             async with client.stream("POST", OLLAMA_API_URL, json=payload) as response:
                 if response.status_code != 200:

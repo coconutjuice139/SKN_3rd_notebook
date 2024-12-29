@@ -34,14 +34,8 @@ async def create_blog(
         raise HTTPException(status_code=422, detail="Invalid JSON format")
     except Exception as e:
         raise HTTPException(status_code=422, detail=f"Validation Error: {e}")
-    # 비즈니스 로직 처리
     return result
-    # try:
-    #     result = await create_blog_post(db, blog_data, image)  # 서비스 로직 호출
-    #     return result
-    # except Exception as e:
-    #     raise HTTPException(status_code=500, detail=str(e))
-    
+
 # 블로그 삭제
 @router.delete("/{post_id}", summary="블로그 글 삭제", response_model=dict)
 async def delete_blog(post_id: str, db: AsyncSession = Depends(get_db)):
@@ -50,45 +44,6 @@ async def delete_blog(post_id: str, db: AsyncSession = Depends(get_db)):
         return result
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
-
-
-# # 블로그 제목 저장 API
-# @router.post("/title", summary="블로그 제목 저장", status_code=status.HTTP_201_CREATED)
-# async def create_title(title_data: TitleCreate, db: AsyncSession = Depends(get_db)):
-#     try:
-#         result = await send_title_data_to_DB(title_data, db)  # 서비스 로직 호출
-#         return result
-#     except Exception as e:
-#         raise HTTPException(status_code=500, detail=str(e))
-
-# # 블로그 내용 저장
-# @router.post("/contents", summary="블로그 내용 저장")
-# async def send_blog_content_data_to_DB(
-#     blog: str = Form(...),  # JSON 데이터 문자열
-#     images: Optional[list[UploadFile]] = File(None),  # 파일 리스트
-#     db: AsyncSession = Depends(get_db),  # DB 세션
-# ):
-#     try:
-#         # JSON 파싱
-#         blog_data = json.loads(blog)
-#         print(blog_data)
-#         blog_content = BlogContent(**blog_data)
-#     except json.JSONDecodeError:
-#         raise HTTPException(status_code=422, detail="Invalid JSON format")
-#     except Exception as e:
-#         raise HTTPException(status_code=422, detail=f"Validation Error: {e}")
-#     # 비즈니스 로직 처리
-#     result = await process_blog_data(blog_content, images, db)
-#     return result
-
-# # 블로그 삭제
-# @router.delete("/{post_id}", summary="블로그 글 삭제", response_model=dict)
-# async def delete_blog(post_id: str, db: AsyncSession = Depends(get_db)):
-#     try:
-#         result = await delete_blog_from_DB(post_id, db)  # 서비스 로직 호출
-#         return result
-#     except Exception as e:
-#         raise HTTPException(status_code=500, detail=str(e))
 
 # 블로그 전체 내용 확인
 @router.get("/{post_id}", summary="블로그 제목, 글 내용 불러오기 + 조회수 상승")

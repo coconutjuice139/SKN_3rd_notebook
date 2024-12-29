@@ -27,8 +27,3 @@ async def upload_image(file: UploadFile = File(...)):
     encoded_image = base64.b64encode(image_data).decode("utf-8")
     # 파일 정보를 출력
     return encoded_image
-    # {
-    #     "filename": file.filename,
-    #     "content_type": file.content_type,
-    #     "size": len(await file.read())
-    # }

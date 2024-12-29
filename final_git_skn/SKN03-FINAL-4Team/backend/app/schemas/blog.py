@@ -37,10 +37,6 @@ class Block(BaseModel):
     content: str  # 텍스트 내용 또는 이미지 URL
     block_order: int  # 블록 순서
 
-# class BlogContentSimple(BaseModel):
-#     post_id: int
-#     is_ad: bool = False  # 광고 여부 기본값 False
-
 class BlogContentSimple(BaseModel):
     title: str
     content: str
